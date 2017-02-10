@@ -301,16 +301,16 @@
   }
 
   // set window.key and window.key.set/get/deleteScope, and the default filter
-  global.key = assignKey;
-  global.key.setScope = setScope;
-  global.key.getScope = getScope;
-  global.key.deleteScope = deleteScope;
-  global.key.filter = filter;
-  global.key.isPressed = isPressed;
-  global.key.getPressedKeyCodes = getPressedKeyCodes;
-  global.key.noConflict = noConflict;
-  global.key.unbind = unbindKey;
+  window.key = assignKey;
+  window.key.setScope = setScope;
+  window.key.getScope = getScope;
+  window.key.deleteScope = deleteScope;
+  window.key.filter = filter;
+  window.key.isPressed = isPressed;
+  window.key.getPressedKeyCodes = getPressedKeyCodes;
+  window.key.noConflict = noConflict;
+  window.key.unbind = unbindKey;
 
-  if(typeof module !== 'undefined') module.exports = key;
+  if(typeof module !== 'undefined') module.exports = assignKey;
 
 })(this);

@@ -35,7 +35,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "6.4.1",
+    "autoprefixer": "^6.7.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "6.1.2",
     "babel-jest": "^18.0.0",
@@ -66,7 +66,7 @@
     "expose-loader": "0.7.1",
     "express": "4.13.4",
     "express-http-proxy": "0.6.0",
-    "extract-text-webpack-plugin": "1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
     "file-loader": "0.9.0",
     "filesize": "3.3.0",
     "find-cache-dir": "0.1.1",
@@ -81,17 +81,16 @@
     "less": "2.7.1",
     "less-loader": "2.2.3",
     "path-exists": "2.1.0",
-    "postcss-loader": "0.8.0",
+    "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "15.3.2",
-    "react-dev-utils": "0.2.1",
+    "react-dev-utils": "^0.4.2",
     "react-transform-hmr": "1.0.4",
     "recursive-readdir": "2.1.0",
     "rimraf": "2.5.4",
-    "script-loader": "0.6.1",
     "strip-ansi": "3.0.1",
     "style-loader": "0.13.0",
-    "webpack": "1.13.2",
-    "webpack-dev-server": "1.16.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -106,6 +105,13 @@
   "engines": {
     "node": ">=6"
   },
+  "browserslist": [
+    "last 3 Chrome versions",
+    "last 3 Firefox versions",
+    "Safari >= 8",
+    "last 3 Edge versions",
+    "IE 11"
+  ],
   "jest": {
     "coverageDirectory": "<rootDir>/target/coverage",
     "coveragePathIgnorePatterns": [

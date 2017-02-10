@@ -23,17 +23,16 @@ import startAjaxMonitoring from './utils/startAjaxMonitoring';
 import startReactApp from './utils/startReactApp';
 import installExtensionsHandler from './utils/installExtensionsHandler';
 import { installGlobal } from '../helpers/l10n';
+import '../libs/third-party/jquery-ui';
+import '../libs/third-party/select2';
+import '../libs/third-party/keymaster';
+import '../libs/third-party/bootstrap/tooltip';
+import '../libs/third-party/bootstrap/dropdown';
+import '../libs/select2-jquery-ui-fix';
+import '../libs/inputs';
+import '../libs/jquery-isolated-scroll';
+import '../libs/application';
 import './styles/index';
-
-require('script!../libs/third-party/jquery-ui.js');
-require('script!../libs/third-party/select2.js');
-require('script!../libs/third-party/keymaster.js');
-require('script!../libs/third-party/bootstrap/tooltip.js');
-require('script!../libs/third-party/bootstrap/dropdown.js');
-require('script!../libs/select2-jquery-ui-fix.js');
-require('script!../libs/inputs.js');
-require('script!../libs/jquery-isolated-scroll.js');
-require('script!../libs/application.js');
 
 configureLocale();
 startAjaxMonitoring();

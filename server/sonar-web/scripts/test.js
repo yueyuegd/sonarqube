@@ -27,6 +27,7 @@ process.env.PUBLIC_URL = '';
 require('dotenv').config({ silent: true });
 
 const jest = require('jest');
+
 const argv = process.argv.slice(2);
 
 // Watch unless on CI
