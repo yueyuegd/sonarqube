@@ -37,6 +37,7 @@
     },
     "test": {
       "plugins": [
+        "transform-es2015-modules-commonjs",
         "transform-react-jsx-source",
         "transform-react-jsx-self"
       ]
