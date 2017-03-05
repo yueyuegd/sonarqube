@@ -1,4 +1,4 @@
-version: {build}
+version: '{build}'
 
 # Do not build on tags
 skip_tags: true
