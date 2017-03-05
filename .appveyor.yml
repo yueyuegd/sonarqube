@@ -1,0 +1,5 @@
+cache:
+  - C:\Users\appveyor\.m2 -> **\pom.xml
+
+build_script:
+  - mvn verify -V -B -e
