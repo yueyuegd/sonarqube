@@ -32,8 +32,8 @@ import static org.junit.Assert.fail;
 
 public class ProxyDeleteRequestBuilderTest {
 
-  @ClassRule
-  public static EsTester esTester = new EsTester();
+  @Rule
+  public EsTester esTester = new EsTester();
 
   @Rule
   public LogTester logTester = new LogTester();

@@ -20,7 +20,6 @@
 package org.sonar.server.es.request;
 
 import org.elasticsearch.common.unit.TimeValue;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -33,8 +32,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProxyNodesStatsRequestBuilderTest {
 
-  @ClassRule
-  public static EsTester esTester = new EsTester();
+  @Rule
+  public EsTester esTester = new EsTester();
 
   @Rule
   public LogTester logTester = new LogTester();

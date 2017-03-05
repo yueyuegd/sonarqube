@@ -23,7 +23,6 @@ import org.elasticsearch.action.admin.cluster.health.ClusterHealthRequestBuilder
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthResponse;
 import org.elasticsearch.cluster.health.ClusterHealthStatus;
 import org.elasticsearch.common.unit.TimeValue;
-import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.sonar.api.utils.log.LogTester;
@@ -35,8 +34,8 @@ import static org.junit.Assert.fail;
 
 public class ProxyClusterHealthRequestBuilderTest {
 
-  @ClassRule
-  public static EsTester esTester = new EsTester();
+  @Rule
+  public EsTester esTester = new EsTester();
 
   @Rule
   public LogTester logTester = new LogTester();

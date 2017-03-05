@@ -21,7 +21,7 @@ package org.sonar.server.es.request;
 
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
 import org.elasticsearch.common.unit.TimeValue;
-import org.junit.ClassRule;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.sonar.api.utils.System2;
@@ -32,10 +32,11 @@ import org.sonar.server.es.EsTester;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
+@Ignore
 public class ProxyCreateIndexRequestBuilderTest {
 
-  @ClassRule
-  public static EsTester esTester = new EsTester();
+  @Rule
+  public EsTester esTester = new EsTester();
 
   @Rule
   public LogTester logTester = new LogTester();
