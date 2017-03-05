@@ -31,6 +31,7 @@ import javax.annotation.Nonnull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.ClassRule;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.rule.RuleStatus;
@@ -59,6 +60,7 @@ import org.sonar.server.tester.UserSessionRule;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
+@Ignore("Errors on MSWindows/AppVeyor")
 // TODO remove ServerTester usage when ActiveRule Daov2 is removed
 public class RuleUpdaterMediumTest {
 
