@@ -1,5 +1,13 @@
-cache:
-  - C:\Users\appveyor\.m2 -> **\pom.xml
+version: {build}
+
+# Do not build on tags
+skip_tags: true
+
+install:
+  - cmd: SET MAVEN_OPTS=-Xmx1g
 
 build_script:
   - mvn verify -V -B -e
+
+cache:
+  - C:\Users\appveyor\.m2 -> **\pom.xml
