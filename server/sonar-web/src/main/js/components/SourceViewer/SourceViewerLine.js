@@ -156,7 +156,7 @@ export default class SourceViewerLine extends React.PureComponent {
   renderLineNumber () {
     const { line } = this.props;
     return (
-      <td className="source-meta source-line-number"
+      <div className="source-meta source-line-number"
           // don't display 0
           data-line-number={line.line ? line.line : undefined}
           role={line.line ? 'button' : undefined}
@@ -169,7 +169,7 @@ export default class SourceViewerLine extends React.PureComponent {
     const { line } = this.props;
     const clickable = !!line.line;
     return (
-      <td className="source-meta source-line-scm"
+      <div className="source-meta source-line-scm"
           data-line-number={line.line}
           role={clickable ? 'button' : undefined}
           tabIndex={clickable ? 0 : undefined}
@@ -177,7 +177,7 @@ export default class SourceViewerLine extends React.PureComponent {
         {this.props.displaySCM && (
           <div className="source-line-scm-inner" data-author={line.scmAuthor}/>
         )}
-      </td>
+      </div>
     );
   }
 
@@ -186,7 +186,7 @@ export default class SourceViewerLine extends React.PureComponent {
     const className = 'source-meta source-line-coverage' +
       (line.coverageStatus != null ? ` source-line-${line.coverageStatus}` : '');
     return (
-      <td className={className}
+      <div className={className}
           data-line-number={line.line}
           title={line.coverageStatus != null && translate('source_viewer.tooltip', line.coverageStatus)}
           data-placement={line.coverageStatus != null && 'right'}
@@ -195,7 +195,7 @@ export default class SourceViewerLine extends React.PureComponent {
           tabIndex={line.coverageStatus != null ? 0 : undefined}
           onClick={line.coverageStatus != null && this.handleCoverageClick}>
         <div className="source-line-bar"/>
-      </td>
+      </div>
     );
   }
 
@@ -211,7 +211,7 @@ export default class SourceViewerLine extends React.PureComponent {
     };
 
     return (
-      <td className={className}
+      <div className={className}
           title={line.duplicated && translate('source_viewer.tooltip.duplicated_line')}
           data-placement={line.duplicated && 'right'}
           data-toggle={line.duplicated && 'tooltip'}
@@ -219,7 +219,7 @@ export default class SourceViewerLine extends React.PureComponent {
           tabIndex="0"
           onClick={handleDuplicationClick}>
         <div className="source-line-bar"/>
-      </td>
+      </div>
     );
   }
 
@@ -239,7 +239,7 @@ export default class SourceViewerLine extends React.PureComponent {
     };
 
     return (
-      <td key={index}
+      <div key={index}
           className={className}
           data-line-number={this.props.line.line}
           data-index={index}
@@ -250,7 +250,7 @@ export default class SourceViewerLine extends React.PureComponent {
           tabIndex={duplicated ? '0' : undefined}
           onClick={duplicated ? handleDuplicationClick : undefined}>
         <div className="source-line-bar"/>
-      </td>
+      </div>
     );
   };
 
@@ -261,7 +261,7 @@ export default class SourceViewerLine extends React.PureComponent {
     const onClick = hasIssues ? this.handleIssuesIndicatorClick : undefined;
 
     return (
-      <td className={className}
+      <div className={className}
           data-line-number={this.props.line.line}
           role="button"
           tabIndex="0"
@@ -272,7 +272,7 @@ export default class SourceViewerLine extends React.PureComponent {
         {issues.length > 1 && (
           <span className="source-line-issues-counter">{issues.length}</span>
         )}
-      </td>
+      </div>
     );
   }
 
@@ -320,7 +320,7 @@ export default class SourceViewerLine extends React.PureComponent {
     const showIssues = (this.state.issuesOpen || this.props.displayAllIssues) && issues.length > 0;
 
     return (
-      <td className={className} data-line-number={line.line}>
+      <div className={className} data-line-number={line.line}>
         <div className="source-line-code-inner">
           <pre ref={node => this.codeNode = node} dangerouslySetInnerHTML={{ __html: finalCode }}/>
           {secondaryIssueLocationMessages != null && secondaryIssueLocationMessages.length > 0 && (
@@ -338,7 +338,7 @@ export default class SourceViewerLine extends React.PureComponent {
             ))}
           </div>
         )}
-      </td>
+      </div>
     );
   }
 
@@ -351,7 +351,7 @@ export default class SourceViewerLine extends React.PureComponent {
     });
 
     return (
-      <tr className={className} data-line-number={line.line}>
+      <div className={className} data-line-number={line.line}>
         {this.renderLineNumber()}
 
         {this.renderSCM()}
@@ -371,7 +371,7 @@ export default class SourceViewerLine extends React.PureComponent {
         )}
 
         {this.renderCode()}
-      </tr>
+      </div>
     );
   }
 }

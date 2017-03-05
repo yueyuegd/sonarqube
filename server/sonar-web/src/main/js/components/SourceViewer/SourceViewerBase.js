@@ -101,7 +101,7 @@ type State = {
   symbolsByLine: { [number]: Array<string> }
 };
 
-const LINES = 500;
+const LINES = 100;
 
 const loadComponent = (key: string): Promise<*> => {
   return getComponentForSourceViewer(key);

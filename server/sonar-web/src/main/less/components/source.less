@@ -42,6 +42,10 @@
   border-collapse: collapse;
 }
 
+.source-line {
+  display: flex;
+}
+
 .source-line:hover {
   .source-line-number,
   .source-line-issues,
@@ -103,6 +107,7 @@
 
 .source-line-code {
   position: relative;
+  flex: 1 0 auto;
   padding: 0 10px;
 
   pre {
@@ -169,6 +174,7 @@
 
 .source-line-issues {
   position: relative;
+  width: 16px;
   padding: 0 2px;
   background-color: @barBackgroundColor;
 }
@@ -182,6 +188,7 @@
 }
 
 .source-line-coverage {
+  width: 5px;
   background-color: @barBackgroundColor;
 }
 
@@ -209,6 +216,7 @@
 }
 
 .source-line-scm {
+  width: 40px;
   padding: 0 5px;
   background-color: @barBackgroundColor;
 }
