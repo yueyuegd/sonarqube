@@ -82,6 +82,7 @@ public final class ClusterProperties {
     if (!enabled) {
       return;
     }
+
     // Name is required in cluster mode
     checkArgument(
       StringUtils.isNotEmpty(name),
