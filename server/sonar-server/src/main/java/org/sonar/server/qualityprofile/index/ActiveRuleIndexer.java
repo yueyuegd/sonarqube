@@ -22,6 +22,7 @@ package org.sonar.server.qualityprofile.index;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -103,6 +104,17 @@ public class ActiveRuleIndexer extends BaseIndexer {
     SearchRequestBuilder search = esClient.prepareSearch(INDEX_TYPE_ACTIVE_RULE)
       .setQuery(QueryBuilders.boolQuery().must(termsQuery(FIELD_ACTIVE_RULE_PROFILE_KEY, qualityProfileKey)));
     bulk.addDeletion(search);
+    bulk.stop();
+  }
+
+  public void deleteByProfileKeys(Collection<String> profileKeys) {
+    BulkIndexer bulk = new BulkIndexer(esClient, INDEX_TYPE_ACTIVE_RULE.getIndex());
+    bulk.start();
+    profileKeys.forEach(profileKey -> {
+      SearchRequestBuilder search = esClient.prepareSearch(INDEX_TYPE_ACTIVE_RULE)
+        .setQuery(QueryBuilders.boolQuery().must(termsQuery(FIELD_ACTIVE_RULE_PROFILE_KEY, profileKey)));
+      bulk.addDeletion(search);
+    });
     bulk.stop();
   }
 

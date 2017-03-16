@@ -30,8 +30,10 @@ import org.sonar.db.DbTester;
 import org.sonar.db.qualityprofile.QualityProfileDto;
 import org.sonar.db.qualityprofile.QualityProfileTesting;
 import org.sonar.server.exceptions.NotFoundException;
+import org.sonar.server.qualityprofile.index.ActiveRuleIndexer;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 public class QProfileFactoryTest {
 
@@ -42,7 +44,8 @@ public class QProfileFactoryTest {
   public ExpectedException expectedException = ExpectedException.none();
 
   private DbSession dbSession = dbTester.getSession();
-  private QProfileFactory underTest = new QProfileFactory(dbTester.getDbClient(), UuidFactoryImpl.INSTANCE, System2.INSTANCE);
+  private ActiveRuleIndexer activeRuleIndexer = mock(ActiveRuleIndexer.class);
+  private QProfileFactory underTest = new QProfileFactory(dbTester.getDbClient(), UuidFactoryImpl.INSTANCE, System2.INSTANCE, activeRuleIndexer);
 
   @Before
   public void setUp() throws Exception {

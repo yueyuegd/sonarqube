@@ -54,6 +54,7 @@ import org.sonar.server.organization.TestDefaultOrganizationProvider;
 import org.sonar.server.qualityprofile.QProfileFactory;
 import org.sonar.server.qualityprofile.QProfileLookup;
 import org.sonar.server.qualityprofile.index.ActiveRuleIndex;
+import org.sonar.server.qualityprofile.index.ActiveRuleIndexer;
 import org.sonar.server.tester.UserSessionRule;
 import org.sonar.server.ws.TestRequest;
 import org.sonar.server.ws.WsActionTester;
@@ -113,7 +114,7 @@ public class SearchActionTest {
       new SearchDataLoader(
         languages,
         new QProfileLookup(dbClient),
-        new QProfileFactory(dbClient, UuidFactoryFast.getInstance(), System2.INSTANCE),
+        new QProfileFactory(dbClient, UuidFactoryFast.getInstance(), System2.INSTANCE, mock(ActiveRuleIndexer.class)),
         dbClient,
         new ComponentFinder(dbClient), qProfileWsSupport),
       languages,

@@ -374,7 +374,7 @@ public class RegisterQualityProfilesTest {
   private RegisterQualityProfiles mockedEs(List<ProfileDefinition> definitions, Languages languages) {
     return new RegisterQualityProfiles(
       dbClient,
-      new QProfileFactory(dbClient, mockedUuidFactory, mockedSystem2),
+      new QProfileFactory(dbClient, mockedUuidFactory, mockedSystem2, mockedActiveRuleIndexer),
       new CachingRuleActivator(mockedSystem2, dbClient, null, new CachingRuleActivatorContextFactory(dbClient), null, null, userSessionRule),
       definitions,
       languages,

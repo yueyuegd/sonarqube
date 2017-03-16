@@ -36,6 +36,7 @@ import org.sonar.server.exceptions.NotFoundException;
 import org.sonar.server.exceptions.UnauthorizedException;
 import org.sonar.server.organization.TestDefaultOrganizationProvider;
 import org.sonar.server.qualityprofile.QProfileFactory;
+import org.sonar.server.qualityprofile.index.ActiveRuleIndexer;
 import org.sonar.server.tester.UserSessionRule;
 import org.sonar.server.ws.WsTester;
 
@@ -58,6 +59,7 @@ public class RenameActionTest {
   private WsTester tester;
   private OrganizationDto organization;
   private RenameAction underTest;
+  private ActiveRuleIndexer activeRuleIndexer = mock(ActiveRuleIndexer.class);
 
   @Before
   public void setUp() {
@@ -65,7 +67,7 @@ public class RenameActionTest {
     TestDefaultOrganizationProvider defaultOrganizationProvider = TestDefaultOrganizationProvider.from(db);
     QProfileWsSupport wsSupport = new QProfileWsSupport(dbClient, userSessionRule, defaultOrganizationProvider);
     underTest = new RenameAction(
-      new QProfileFactory(dbClient, UuidFactoryFast.getInstance(), System2.INSTANCE),
+      new QProfileFactory(dbClient, UuidFactoryFast.getInstance(), System2.INSTANCE, activeRuleIndexer),
       wsSupport,
       dbClient,
       userSessionRule);

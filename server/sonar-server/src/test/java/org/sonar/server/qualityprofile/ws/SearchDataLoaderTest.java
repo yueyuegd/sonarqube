@@ -39,13 +39,13 @@ import org.sonar.db.organization.OrganizationDto;
 import org.sonar.db.qualityprofile.QualityProfileDto;
 import org.sonar.db.qualityprofile.QualityProfileTesting;
 import org.sonar.server.component.ComponentFinder;
-import org.sonar.server.exceptions.BadRequestException;
 import org.sonar.server.language.LanguageTesting;
 import org.sonar.server.organization.TestDefaultOrganizationProvider;
 import org.sonar.server.qualityprofile.QProfile;
 import org.sonar.server.qualityprofile.QProfileFactory;
 import org.sonar.server.qualityprofile.QProfileLookup;
 import org.sonar.server.qualityprofile.index.ActiveRuleIndex;
+import org.sonar.server.qualityprofile.index.ActiveRuleIndexer;
 import org.sonarqube.ws.client.qualityprofile.SearchWsRequest;
 
 import static org.apache.commons.lang.RandomStringUtils.randomAlphanumeric;
@@ -71,6 +71,7 @@ public class SearchDataLoaderTest {
   private ActiveRuleIndex activeRuleIndex;
   private QProfileWsSupport qProfileWsSupport;
   private OrganizationDto organization;
+  private ActiveRuleIndexer activeRuleIndexer = mock(ActiveRuleIndexer.class);
 
   @Before
   public void before() {
@@ -80,7 +81,7 @@ public class SearchDataLoaderTest {
     profileLookup = new QProfileLookup(dbClient);
     TestDefaultOrganizationProvider defaultOrganizationProvider = TestDefaultOrganizationProvider.from(dbTester);
     qProfileWsSupport = new QProfileWsSupport(dbClient, null, defaultOrganizationProvider);
-    profileFactory = new QProfileFactory(dbClient, UuidFactoryFast.getInstance(), new AlwaysIncreasingSystem2());
+    profileFactory = new QProfileFactory(dbClient, UuidFactoryFast.getInstance(), new AlwaysIncreasingSystem2(), activeRuleIndexer);
     componentFinder = mock(ComponentFinder.class);
   }
 
