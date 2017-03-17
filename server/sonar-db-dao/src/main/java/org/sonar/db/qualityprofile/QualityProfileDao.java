@@ -176,10 +176,18 @@ public class QualityProfileDao implements Dao {
     return executeLargeInputs(languageKeys, input -> mapper(session).selectByNameAndLanguages(organization.getUuid(), name, input));
   }
 
+  /**
+   * @deprecated provide organization
+   */
+  @Deprecated
   public List<ComponentDto> selectProjects(String profileName, String language, DbSession session) {
     return mapper(session).selectProjects(profileName, language);
   }
 
+  /**
+   * @deprecated provide organization
+   */
+  @Deprecated
   public Map<String, Long> countProjectsByProfileKey(DbSession dbSession) {
     Map<String, Long> countByKey = new HashMap<>();
     QualityProfileMapper mapper = mapper(dbSession);
