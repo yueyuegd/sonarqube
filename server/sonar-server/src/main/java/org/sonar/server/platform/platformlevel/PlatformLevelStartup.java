@@ -29,7 +29,6 @@ import org.sonar.server.qualityprofile.CachingRuleActivator;
 import org.sonar.server.qualityprofile.CachingRuleActivatorContextFactory;
 import org.sonar.server.qualityprofile.RegisterQualityProfiles;
 import org.sonar.server.rule.RegisterRules;
-import org.sonar.server.startup.ClearRulesOverloadedDebt;
 import org.sonar.server.startup.DeleteOldAnalysisReportsFromFs;
 import org.sonar.server.startup.DisplayLogOnDeprecatedProjects;
 import org.sonar.server.startup.GeneratePluginIndex;
@@ -61,7 +60,6 @@ public class PlatformLevelStartup extends PlatformLevel {
       RegisterPermissionTemplates.class,
       RenameDeprecatedPropertyKeys.class,
       DisplayLogOnDeprecatedProjects.class,
-      ClearRulesOverloadedDebt.class,
       DeleteOldAnalysisReportsFromFs.class);
 
     // RegisterServletFilters makes the WebService engine of Level4 served by the MasterServletFilter, therefor it
