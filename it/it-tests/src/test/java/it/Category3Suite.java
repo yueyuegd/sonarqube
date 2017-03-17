@@ -35,6 +35,7 @@ import it.analysis.SettingsEncryptionTest;
 import it.analysis.TempFolderTest;
 import it.measure.DecimalScaleMetricTest;
 import it.organization.IssueAssignTest;
+import it.organization.MembershipTest;
 import it.organization.OrganizationTest;
 import it.organization.RootTest;
 import it.plugins.VersionPluginTest;
@@ -67,6 +68,7 @@ import static util.ItUtils.xooPlugin;
   DecimalScaleMetricTest.class,
   // organization
   OrganizationTest.class,
+  MembershipTest.class,
   IssueAssignTest.class,
   // root users
   RootTest.class,
