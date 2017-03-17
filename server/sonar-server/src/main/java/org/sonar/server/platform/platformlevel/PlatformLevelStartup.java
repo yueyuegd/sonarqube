@@ -49,14 +49,15 @@ public class PlatformLevelStartup extends PlatformLevel {
   protected void configureLevel() {
     add(GeneratePluginIndex.class,
       ServerLifecycleNotifier.class,
-      DefaultOrganizationEnforcer.class,
-      DefinedQProfileLoader.class);
+      DefaultOrganizationEnforcer.class);
 
     addIfStartupLeader(
       IndexerStartupTask.class,
       RegisterMetrics.class,
       RegisterQualityGates.class,
-      RegisterRules.class,
+      RegisterRules.class);
+    add(DefinedQProfileLoader.class);
+    addIfStartupLeader(
       CachingRuleActivatorContextFactory.class,
       CachingRuleActivator.class,
       RegisterQualityProfiles.class,
